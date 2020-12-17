@@ -1,0 +1,45 @@
+<!--第一个 <!DOCTYPE html> <html xmlns:th="http://www.thymeleaf.org"> <head> <meta charset="UTF-8"> <title>Getting Started; Serving Web Content</title> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> </head> <body>
+<p th:text="'hello ' + ${name} + '!'" />
+</body>
+</html>-->
+
+<!--第二个 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Getting Started; Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	${name} 获取 GreetingController类中的name变量信息并输出
+	<p th:text="'hello ' + ${user.name} + '!'" />
+	国家：
+	<span th:text="${locale.country}">US</span>
+	<br> 今天是：
+	<span th:text="${#calendars.format(today,'dd MMMM yyyy')}">5 May
+		2018</span>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+.odd {
+	background-color: #888888;
+}
+</style>
+<body>
+	<table>
+		<tr>
+			<th>学生姓名</th>
+		</tr>
+		<tr th:each="user:${userList}" th:class="${userStat.odd}?'odd'">
+			<td th:text="${user.name}">空</td>
+		</tr>
+	</table>
+</body>
+</html>
